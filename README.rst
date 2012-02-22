@@ -2,6 +2,12 @@
 django-moat
 ===========
 
+django-moat is a mini-app adds an additional layer of authentication via HTTP
+Basic Auth. It's primary use case is to prevent access staging, development, or
+otherwise private sites on the public internet. It is equivalent to configuring
+Basic Auth on your webserver (Apache, nginx) but works in environments where
+that is not possible (heroku).
+
 Installation
 ------------
 
