@@ -2,12 +2,35 @@
 django-moat
 ===========
 
+Installation
+------------
+
+To install from source ::
+
+    pip install -e git+https://github.com/amrox/django-moat#egg=django-moat
+
+PyPi package coming soon.
+
+
 Usage
 -----
 
-Add ``moat`` to your ``INSTALLED_APPS``::
+Add ``moat.middleware.MoatMiddleware`` to your ``MIDDLEWARE_CLASSES``::
 
-    INSTALLED_APPS = (
-        # Existing apps
-        "moat",
+    MIDDLEWARE_CLASSES = (
+        # Existing middleware classes
+        "moat.middleware.MoatMiddleware",
     )
+
+``moat`` has several configuration variable you may put in your ``settings.py``
+
+MOAT_ENABLED
+    Enable or disable ``moat``. (True or False)
+    
+    MOAT_ENABLED = True
+
+HTTP_AUTH_REALM 
+    Set Basic Auth Realm
+    
+    HTTP_AUTH_REALM = 'App Staging'
+
