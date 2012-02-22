@@ -25,7 +25,7 @@ Add ``moat.middleware.MoatMiddleware`` to your ``MIDDLEWARE_CLASSES``::
 ``moat`` has several configuration variable you may put in your ``settings.py``
 
 MOAT_ENABLED
-    Enable or disable ``moat``. (True or False)
+    Enable or disable ``moat``. (True or False)::
     
     MOAT_ENABLED = True
 
@@ -35,12 +35,12 @@ HTTP_AUTH_REALM
     HTTP_AUTH_REALM = 'App Staging'
 
 MOAT_ALWAYS_ALLOW_VIEWS
-    A list of views to allow through ``moat``
+    A list of views to allow through ``moat``::
 
     MOAT_ALWAYS_ALLOW_VIEWS = ['myapp.views.home']
     
 MOAT_ALWAYS_ALLOW_MODULES 
-    A list of modules to allow through ``moat``
+    A list of modules to allow through ``moat``::
 
     MOAT_ALWAYS_ALLOW_MODULES = ['oauth_provider.views']
 
