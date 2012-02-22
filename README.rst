@@ -47,8 +47,8 @@ MOAT_ALWAYS_ALLOW_MODULES
 Acknowledgements
 ----------------
 
- * Code borrowed from:
-   - http://djangosnippets.org/snippets/1720/
-   - https://github.com/pragmaticbadger/django-privatebeta
+:Code borrowed from:
+- http://djangosnippets.org/snippets/1720/
+- https://github.com/pragmaticbadger/django-privatebeta
 
- * <a href="http://ryanbalfanz.net/">Ryan Balfanz</a> for suggesting the name ``moat``.
+`Ryan Balfanz <http://ryanbalfanz.net/>`_ for suggesting the name ``moat``.
