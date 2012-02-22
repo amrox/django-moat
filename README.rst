@@ -18,8 +18,8 @@ To install from source ::
 PyPi package coming soon.
 
 
-Usage
------
+Configuration
+-------------
 
 Add ``moat.middleware.MoatMiddleware`` to your ``MIDDLEWARE_CLASSES``::
 
@@ -49,6 +49,17 @@ MOAT_ALWAYS_ALLOW_MODULES
     A list of modules to allow through ``moat``
 
         MOAT_ALWAYS_ALLOW_MODULES = ['oauth_provider.views']
+
+Usage
+-----
+
+Your site now requires that your authenticate with a staff-level user before
+accessing any non-whitelisted view. It is recommended that your add a dedicate
+staff-level user in the django admin for moat authentication.
+
+By default, the admin views will be blocked by ``moat``. You'll either need to
+create a user with ``django-admin.py``, or add ``django.contrib.admin.sites``
+to ``MOAT_ALWAYS_ALLOW_MODULES``.
 
 Acknowledgements
 ----------------
