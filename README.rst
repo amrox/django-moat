@@ -27,22 +27,22 @@ Add ``moat.middleware.MoatMiddleware`` to your ``MIDDLEWARE_CLASSES``::
 MOAT_ENABLED
     Enable or disable ``moat``. (True or False)
     
-    MOAT_ENABLED = True
+        MOAT_ENABLED = True
 
 HTTP_AUTH_REALM 
     Set Basic Auth Realm
     
-    HTTP_AUTH_REALM = 'App Staging'
+        HTTP_AUTH_REALM = 'App Staging'
 
 MOAT_ALWAYS_ALLOW_VIEWS
     A list of views to allow through ``moat``
 
-    MOAT_ALWAYS_ALLOW_VIEWS = ['myapp.views.home']
+        MOAT_ALWAYS_ALLOW_VIEWS = ['myapp.views.home']
     
 MOAT_ALWAYS_ALLOW_MODULES 
     A list of modules to allow through ``moat``
 
-    MOAT_ALWAYS_ALLOW_MODULES = ['oauth_provider.views']
+        MOAT_ALWAYS_ALLOW_MODULES = ['oauth_provider.views']
 
 Acknowledgements
 ----------------
