@@ -34,3 +34,21 @@ HTTP_AUTH_REALM
     
     HTTP_AUTH_REALM = 'App Staging'
 
+MOAT_ALWAYS_ALLOW_VIEWS
+    A list of views to allow through ``moat``
+
+    MOAT_ALWAYS_ALLOW_VIEWS = ['myapp.views.home']
+    
+MOAT_ALWAYS_ALLOW_MODULES 
+    A list of modules to allow through ``moat``
+
+    MOAT_ALWAYS_ALLOW_MODULES = ['oauth_provider.views']
+
+Acknowledgements
+----------------
+
+ * Code borrowed from:
+   - http://djangosnippets.org/snippets/1720/
+   - https://github.com/pragmaticbadger/django-privatebeta
+
+ * <a href="http://ryanbalfanz.net/">Ryan Balfanz</a> for suggesting the name ``moat``.
