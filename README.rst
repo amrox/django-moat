@@ -56,7 +56,7 @@ MOAT_DEBUG_DISABLE_HTTPS
         MOAT_DEBUG_DISABLE_HTTPS = True
 
 
-Finally you may want to set ```SESSION_EXPIRE_AT_BROWSER_CLOSE <https://docs.djangoproject.com/en/1.3/ref/settings/#std:setting-SESSION_EXPIRE_AT_BROWSER_CLOSE>``` setting.
+Finally you may want to set ```SESSION_EXPIRE_AT_BROWSER_CLOSE`` <https://docs.djangoproject.com/en/1.3/ref/settings/#std:setting-SESSION_EXPIRE_AT_BROWSER_CLOSE>` setting.
 
 Usage
 -----
