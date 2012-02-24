@@ -26,7 +26,7 @@ class HttpResponseTemporaryRedirect(HttpResponse):
     def __init__(self, redirect_to):
         HttpResponse.__init__(self)
         self['Location'] = iri_to_uri(redirect_to)
- 
+
 class MoatMiddleware(object):
     """
     Some middleware to authenticate all requests at this site.
@@ -68,6 +68,12 @@ class MoatMiddleware(object):
             return None
         if '%s' % view_func.__module__ in whitelisted_modules:
             return None
+
+        # Check for "cloud" HTTPS environments
+        # adapted from http://djangosnippets.org/snippets/2472/
+        if 'HTTP_X_FORWARDED_PROTO' in request.META:
+            if request.META['HTTP_X_FORWARDED_PROTO'] == 'https':
+                request.is_secure = lambda: True
 
         # if not, redirect to secure
         if not self.debug_disable_https and not request.is_secure():
