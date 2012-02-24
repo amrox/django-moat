@@ -34,6 +34,7 @@ class MoatMiddleware(object):
     def __init__(self):
         self.always_allow_modules = getattr(settings, 'MOAT_ALWAYS_ALLOW_MODULES', [])
         self.always_allow_views = getattr(settings, 'MOAT_ALWAYS_ALLOW_VIEWS', [])
+        self.debug_disable_https = getattr(settings, 'MOAT_DEBUG_DISABLE_HTTPS', [])
 
     def process_request(self, request):
 
@@ -69,7 +70,7 @@ class MoatMiddleware(object):
             return None
 
         # if not, redirect to secure
-        if not request.is_secure():
+        if not self.debug_disable_https and not request.is_secure():
             return self._redirect(request)
 
         # finally check auth

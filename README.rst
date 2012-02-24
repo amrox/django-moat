@@ -50,6 +50,11 @@ MOAT_ALWAYS_ALLOW_MODULES
 
         MOAT_ALWAYS_ALLOW_MODULES = ['oauth_provider.views']
 
+MOAT_DEBUG_DISABLE_HTTPS
+    Disable HTTPS. *For testing purposes only.* Don't ship with this on.
+        
+        MOAT_DEBUG_DISABLE_HTTPS = True
+
 Usage
 -----
 
