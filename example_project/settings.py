@@ -98,6 +98,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'moat.middleware.MoatMiddleware',
 )
 
 ROOT_URLCONF = 'example_project.urls'
@@ -143,3 +144,10 @@ LOGGING = {
         },
     }
 }
+
+# django-moat
+MOAT_ENABLED = True
+HTTP_AUTH_REALM = 'App Staging'
+MOAT_ALWAYS_ALLOW_VIEWS = ['myapp.views.home']
+MOAT_ALWAYS_ALLOW_MODULES = ['oauth_provider.views']
+MOAT_DEBUG_DISABLE_HTTPS = True
