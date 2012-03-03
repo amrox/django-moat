@@ -120,6 +120,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'main',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -147,7 +148,7 @@ LOGGING = {
 
 # django-moat
 MOAT_ENABLED = True
-HTTP_AUTH_REALM = 'App Staging'
-MOAT_ALWAYS_ALLOW_VIEWS = ['myapp.views.home']
-MOAT_ALWAYS_ALLOW_MODULES = ['oauth_provider.views']
+HTTP_AUTH_REALM = 'Example Project'
+MOAT_ALWAYS_ALLOW_VIEWS = ['example_project.main.views.public']
+# MOAT_ALWAYS_ALLOW_MODULES = ['oauth_provider.views']
 MOAT_DEBUG_DISABLE_HTTPS = True
