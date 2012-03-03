@@ -11,11 +11,13 @@ that is not possible (heroku).
 Installation
 ------------
 
+From PyPi ::
+
+    pip install django-moat
+
 To install from source ::
 
     pip install -e git+https://github.com/amrox/django-moat#egg=django-moat
-
-PyPi package coming soon.
 
 
 Configuration
