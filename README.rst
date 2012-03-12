@@ -68,8 +68,7 @@ accessing any non-whitelisted view. It is recommended that your add a dedicate
 staff-level user in the django admin for moat authentication.
 
 By default, the admin views will be blocked by ``moat``. You'll either need to
-create a user with ``django-admin.py``, or add ``django.contrib.admin.sites``
-to ``MOAT_ALWAYS_ALLOW_MODULES``.
+create a user with ``django-admin.py``, or set ``MOAT_ALLOW_ADMIN to ``True``.
 
 Acknowledgements
 ----------------
