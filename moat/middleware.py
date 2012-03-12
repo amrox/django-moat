@@ -34,6 +34,7 @@ class MoatMiddleware(object):
     def __init__(self):
         self.always_allow_modules = getattr(settings, 'MOAT_ALWAYS_ALLOW_MODULES', [])
         self.always_allow_views = getattr(settings, 'MOAT_ALWAYS_ALLOW_VIEWS', [])
+        self.allow_admin = getattr(settings, 'MOAT_ALLOW_ADMIN', [])
         self.debug_disable_https = getattr(settings, 'MOAT_DEBUG_DISABLE_HTTPS', [])
 
     def process_request(self, request):
@@ -68,6 +69,8 @@ class MoatMiddleware(object):
             return None
         if '%s' % view_func.__module__ in whitelisted_modules:
             return None
+        if self.allow_admin and view_func.__module__.startswith('django.contrib.admin'):
+            return None
 
         # Check for "cloud" HTTPS environments
         # adapted from http://djangosnippets.org/snippets/2472/
@@ -80,6 +83,8 @@ class MoatMiddleware(object):
             return self._redirect(request)
 
         # finally check auth
+
+        print request
         return self._http_auth_helper(request)
     
     def _redirect(self, request):
