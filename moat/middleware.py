@@ -14,6 +14,7 @@ Adapted from:
 
 import base64
 import logging
+import re
 
 from django.conf import settings
 from django.http import HttpResponse, iri_to_uri, get_host
@@ -41,6 +42,9 @@ class MoatMiddleware(object):
             settings, 'MOAT_ALWAYS_ALLOW_MODULES', [])
         self.always_allow_views = getattr(
             settings, 'MOAT_ALWAYS_ALLOW_VIEWS', [])
+        self.always_allow_urls = map(
+            re.compile,
+            getattr(settings, 'MOAT_ALWAYS_ALLOW_URLS', []))
         self.allow_admin = getattr(settings, 'MOAT_ALLOW_ADMIN', False)
         self.debug_disable_https = getattr(
             settings, 'MOAT_DEBUG_DISABLE_HTTPS', False)
@@ -52,6 +56,11 @@ class MoatMiddleware(object):
                 return
         except AttributeError:
             pass
+
+        for allowed_url in self.always_allow_urls:
+            if allowed_url.search(request.path):
+                LOG.debug('URL %s is allowed by config', request.path)
+                return
 
         # see if we already authenticated
         if request.session.get('moat_username') is not None:
