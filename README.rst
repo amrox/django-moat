@@ -34,23 +34,28 @@ Add ``moat.middleware.MoatMiddleware`` to your ``MIDDLEWARE_CLASSES``::
 
 MOAT_ENABLED
     Enable or disable ``moat``. (True or False)
-    
+
         MOAT_ENABLED = True
 
-HTTP_AUTH_REALM 
+HTTP_AUTH_REALM
     Set Basic Auth Realm
-    
+
         HTTP_AUTH_REALM = 'App Staging'
 
 MOAT_ALWAYS_ALLOW_VIEWS
     A list of views to allow through ``moat``
 
         MOAT_ALWAYS_ALLOW_VIEWS = ['myapp.views.home']
-    
-MOAT_ALWAYS_ALLOW_MODULES 
+
+MOAT_ALWAYS_ALLOW_MODULES
     A list of modules to allow through ``moat``
 
         MOAT_ALWAYS_ALLOW_MODULES = ['oauth_provider.views']
+
+MOAT_ALWAYS_ALLOW_URLS
+    A list of regex of urls to allow through ``moat``
+
+        MOAT_ALWAYS_ALLOW_URLS = ['^/$', '^/blog/.*$']
 
 MOAT_ALLOW_ADMIN
     Let the admin site through ``moat``. Default: ``False``.
@@ -59,7 +64,7 @@ MOAT_ALLOW_ADMIN
 
 MOAT_DEBUG_DISABLE_HTTPS
     Disable HTTPS. *For testing purposes only.* Don't ship with this on.
-        
+
         MOAT_DEBUG_DISABLE_HTTPS = True
 
 
